@@ -7,6 +7,7 @@ class Admin::VenuesController < Admin::ApplicationController
 
   def new
     @venue = Venue.new
+    @categories = Category.all 
   end
 
   def show
@@ -17,6 +18,7 @@ class Admin::VenuesController < Admin::ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
+    @venue.categories = params[:categories]
     if @venue.save
       flash[:success] = 'Centro fue creado exitosamente'
       redirect_to admin_venues_url
@@ -27,7 +29,7 @@ class Admin::VenuesController < Admin::ApplicationController
   end
 
   def update
-    if @venue.update(venue_params)
+    if @venue.update(venue_params)      
       flash[:success] = 'Centro fue actualizado exitosamente'
       redirect_to admin_venues_url
     else
@@ -56,6 +58,7 @@ class Admin::VenuesController < Admin::ApplicationController
     params.require(:venue).permit(:name,
                                   :description,
                                   :phone,
-                                  :image)
+                                  :image, 
+                                  :categories)
   end
 end

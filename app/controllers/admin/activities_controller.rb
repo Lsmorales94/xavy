@@ -1,6 +1,6 @@
 class Admin::ActivitiesController < Admin::ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @activities = Activity.by_name
   end
@@ -25,7 +25,7 @@ class Admin::ActivitiesController < Admin::ApplicationController
       render :new
     end
   end
-
+ 
   def update
     if @activity.update(activity_params)
       flash[:success] = 'Actividad fue actualizada exitosamente'
@@ -56,6 +56,7 @@ class Admin::ActivitiesController < Admin::ApplicationController
     params.require(:activity).permit(:name,
                                   :description,
                                   :schedule,
+                                  :dificult,
                                   :venue_id)
   end
 end

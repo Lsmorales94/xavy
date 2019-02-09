@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Activity.destroy_all
 
 venues = Venue.create([
   {
@@ -32,11 +33,47 @@ venues.each.with_index(1) do |venue, index|
   )
 end
 
-Activity.create(name: 'Clase de crossfit', description: 'Ven a entrenar', schedule: 'Lunes a viernes De 8:00am a 5:00pm', venue: Venue.first)
-Activity.create(name: 'Entrada libre', description: 'Ven a entrenar', schedule: 'Todos los díasa las 5:00pm', venue: Venue.first)
-
-Activity.create(name: 'Kundalin yoga', description: 'Cuerpo y mente sana', schedule: 'De 8:00am a 5:00pm', venue: Venue.second)
-Activity.create(name: 'Yoga meditación', description: 'Paz mental', schedule: 'De 8:00am a 10:00m y de 2:00pm a 5pm', venue: Venue.second)
-
-Activity.create(name: 'Clase de escalada', description: 'Aprende las bases', schedule: 'De 8:00am a 5:00pm', venue: Venue.third)
-Activity.create(name: 'Entrada libre', description: 'Una hora de acceso a todos los salones', schedule: 'De 8:00am a 5:00pm', venue: Venue.third)
+Activity.create([
+   {
+    name: 'Clase de crossfit',
+    description: 'Ven a entrenar', 
+    schedule: 'Lunes a viernes De 8:00am a 5:00pm',
+    dificult: 'Alta', 
+    venue: Venue.first
+   },
+   {
+    name: 'Entrada libre',
+    description: 'Ven entrena',
+    schedule: 'Todos los díasa las 5:00pm', 
+    dificult: 'Alta', 
+    venue: Venue.first
+   },
+   {
+    name: 'Kundalin yoga',
+    description: 'Cuerpo y mente sana',
+    schedule: 'De 8:00am a 5:00pm',
+    dificult: 'Alta',
+    venue: Venue.second
+   },
+   {
+    name: 'Yoga meditación', 
+    description: 'Paz mental',
+    schedule: 'De 8:00am a 10:00m y de 2:00pm a 5pm',
+    dificult: 'Alta', 
+    venue: Venue.second
+   },
+   { 
+    name: 'Clase de escalada',
+    description: 'Aprende las bases',
+    schedule: 'De 8:00am a 5:00pm', 
+    dificult: 'Alta',
+    venue: Venue.third
+   },
+   {
+    name: 'Entrada libre',
+    description: 'Una hora de acceso a todos ',
+    schedule: 'De 8:00am a 5:00pm', 
+    dificult: 'Alta', 
+    venue: Venue.third 
+    },
+   ])

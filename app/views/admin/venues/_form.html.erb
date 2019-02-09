@@ -3,5 +3,15 @@
 <%= f.input :description, as: :text, required: true %>
 <%= f.input :phone, required: true %>
 <%= f.input :image %>
+
+<div class="field" >
+    <label>Categorias </label>
+    <% @categories.each do |category| %>
+        <div class="field" >      
+            <%= check_box_tag "categories[]", category.id %> <%= category.name %> 
+        </div>
+    <%end%>     
+</div>
+
 <%= f.button :submit, required: true %>
 <% end %>

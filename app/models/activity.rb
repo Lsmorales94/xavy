@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  description :text
+#  dificult    :string
 #  name        :string
 #  schedule    :text
 #  created_at  :datetime         not null
@@ -22,5 +23,6 @@ class Activity < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
+  validates :dificult, presence: true
   validates :schedule, presence: true
 end
